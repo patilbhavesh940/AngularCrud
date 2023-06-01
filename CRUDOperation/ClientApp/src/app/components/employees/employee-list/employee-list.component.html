@@ -1,0 +1,31 @@
+<div class="container m-5">
+ <h1 class="mb-3"> Employees</h1>
+
+ <table class="table" *ngIf="employeeList.length > 0">
+  <thead>
+    <tr>
+      <!-- <th>Id</th> -->
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Salary</th>
+      <th>Department</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of employeeList">
+      <!-- <td>{{emp.id}}</td> -->
+      <td>{{emp.name}}</td>
+      <td>{{emp.email}}</td>
+      <td>{{emp.phone}}</td>
+      <td>{{emp.sallary}}</td>
+      <td>{{emp.department}}</td>
+      <td><a [routerLink]="['/employees','edit',emp.id]">View</a></td>
+      <td><a href="#" (click)="deleteEmployee(emp.id)">Delete</a></td>
+    </tr>
+  </tbody>
+ </table>
+ <p *ngIf="employeeList.length <= 0">No Record Found</p>
+</div>
